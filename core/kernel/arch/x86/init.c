@@ -17,14 +17,14 @@
 #include <kernel.h>
 #include <multiboot.h>
 #include <printf.h>
+#include <mm.h>
 #include <utils.h>
 
-multiboot_header_t *multiboot;
-extern uint32_t end;
+multiboot_t *multiboot;
 
-void arch_init(multiboot_header_t *header)
+void arch_init(multiboot_t *mboot)
 {
-	memcpy(multiboot, header, sizeof(multiboot_header_t));
+	memcpy(multiboot, mboot, sizeof(multiboot_t));
 	
     // Init the descriptors
     
@@ -34,7 +34,7 @@ void arch_init(multiboot_header_t *header)
     
     arch_idt_install();
     
-    // Init paging
+    kprintf("IDT Installed\n");
     
     // Go to architecture independent init point of kernel
     kernel_init();

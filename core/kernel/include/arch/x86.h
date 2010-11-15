@@ -175,28 +175,16 @@ void arch_pit_wait(uint32_t msec);
 
 /************************   Paging   ****************************/
 
-#define MAX_MEM_TYPES 4
-#define PAGE_SHIFT 12
-#define PAGE_SIZE  ( 1UL << PAGE_SHIFT )
-#define PAGE_MASK  ( ~( PAGE_SIZE - 1 ) )
-#define PAGE_ALIGN( addr ) ( ( (addr) + PAGE_SIZE - 1 ) & PAGE_MASK )
-
-/* Represents one page of physical memory */
-typedef struct
-{
-	uint32_t ref_count;
-	
-} mm_page_t;
-
-typedef struct
-{
-	bool free;
-    uint32_t start;
-    uint32_t size;
-	
-} mm_description_t;
+#include <mm.h>
 
 void arch_pages_init(uint64_t start, uint64_t _memory_size);
 
+void paging_frame_alloc(uint32_t address);
+void paging_frame_free(uint32_t address);
+void paging_frame_reserve(uint32_t address);
+uint32_t paging_frame_status(uint32_t address);
+//void paging_map_range(mm_context_t *context, uint32_t virtual_start, uint32_t virtual_end, uint32_t physical_address);
+//void mm_switch_context(mm_context_t* new_context);
+void paging_disable();
 
 #endif

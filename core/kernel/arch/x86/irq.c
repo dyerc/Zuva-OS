@@ -39,8 +39,8 @@ void arch_isr_handler(registers_t regs)
     }
     else
     {
-	// Unhandled interrupt
-	kprintf("Unhandled interrupt!");
+		// Unhandled interrupt
+		kprintf("Unhandled interrupt: %X", regs.int_no);
         for(;;);
     }
 }

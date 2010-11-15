@@ -21,7 +21,7 @@
 
 time_detailed_t* arch_rtc_get_time()
 {
-    time_detailed_t *time; // = kmalloc(sizeof(time_detailed_t));
+    time_detailed_t *time;// = kmalloc(sizeof(time_detailed_t));
     int8_t port = 0x80; /* The default busy value */
     uint8_t settings;
 	

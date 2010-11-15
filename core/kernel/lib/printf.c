@@ -37,7 +37,7 @@ void vprintf(const char* args, va_list ap)
                         itoa(va_arg(ap, int32_t), buffer);
                         console_puts(buffer);
                         break;
-                    case 'X': /// TODO: make it standardized
+                    case 'X':
 			console_puts("0x");
                         i2hex(va_arg(ap, int32_t), buffer, 8);
                         console_puts(buffer);

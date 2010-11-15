@@ -25,19 +25,19 @@ void arch_pit_wait(uint32_t msec)
     while(timer_ticks < new_ticks);
 }
 
-static void arch_pit_irq(registers_t *regs)
+static void arch_pit_irq(registers_t regs)
 {    
     timer_ticks++;
     
     if (timer_ticks % frequency == 0)
     {
-		time_change();
+	time_change();
     }
 }
 
 void arch_pit_install()
 {  
-    arch_register_irq_handler(32, &arch_pit_irq);
+    arch_register_irq_handler(32, (irq_t)&arch_pit_irq);
     // The value we send to the PIT is the value to divide it's input clock
     // (1193180 Hz) by, to get our required frequency. Important to note is
     // that the divisor must be small enough to fit into 16-bits.

@@ -18,15 +18,28 @@
 #include <console.h>
 #include <multiboot.h>
 
-extern multiboot_header_t *multiboot;
+extern multiboot_t *multiboot;
 
+void kernel_detect_location(const char *args)
+{
+}
 
 void kernel_init()
 {
     console_init();
-    
-    asm volatile("sti");
     //time_init();
+    
+    mm_init(multiboot);
+    
+    //kprintf("Heap = %d\nBlock = %d\nChunk = %d\n\n", sizeof(mm_heap_t), sizeof(mm_block_t), sizeof(mm_chunk_t));
+    
+    uint32_t a = kmalloc(1000);
+    kprintf("A = %d\n", a);
+    uint32_t b = kmalloc(100);
+    kprintf("B = %d\n", b);
+    kfree(b);
+    uint32_t c = kmalloc(100);
+    kprintf("C = %d\n", c);
 }
 
 void kernel_shutdown()

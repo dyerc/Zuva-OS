@@ -17,11 +17,19 @@ arch/x86/irq.o \
 arch/x86/power.o \
 arch/x86/rtc.o \
 arch/x86/pit.o \
+arch/x86/mm/paging.o \
 lib/utils.o \
 lib/printf.o \
+mm/mm.o \
+mm/pages.o \
+mm/heap.o \
+mm/context.o \
+mm/pagefault.o \
 kernel.o \
 console.o \
-time.o
+time.o \
+scheduler.o \
+thread.o
 
 all: $(OBJS) link iso run
 
@@ -37,8 +45,7 @@ build: $(OBJS) link iso
 
 
 link:
-	@echo Linking...
-	@$(LD) -T arch/linker.ld $(OBJS) $(x86emu) -o ../../build/iso/boot/kernel.bin
+	$(LD) -T arch/linker.ld $(OBJS) $(x86emu) -o ../../build/iso/boot/kernel.bin
 
 iso:
 	cd ../../build; \
@@ -49,4 +56,4 @@ clean:
 	
 run:
 	cd C:/Code/qemu; \
-	./qemu-win-zuva.bat
+	./qemu-zuva.bat
