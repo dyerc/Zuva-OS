@@ -1,0 +1,32 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/local/cross/bin/i586-elf-gcc 
+Build flags: 
+Id flags: 
+
+The output was:
+1
+/usr/local/cross/lib/gcc/i586-elf/4.6.3/../../../../i586-elf/bin/ld: cannot find crt0.o: No such file or directory
+/usr/local/cross/lib/gcc/i586-elf/4.6.3/../../../../i586-elf/bin/ld: cannot find crtbegin.o: No such file or directory
+/usr/local/cross/lib/gcc/i586-elf/4.6.3/../../../../i586-elf/bin/ld: cannot find -lgcc
+/usr/local/cross/lib/gcc/i586-elf/4.6.3/../../../../i586-elf/bin/ld: cannot find -lc
+/usr/local/cross/lib/gcc/i586-elf/4.6.3/../../../../i586-elf/bin/ld: cannot find -lgcc
+/usr/local/cross/lib/gcc/i586-elf/4.6.3/../../../../i586-elf/bin/ld: cannot find crtend.o: No such file or directory
+collect2: ld returned 1 exit status
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /Users/Chris/Projects/Zuva-OS/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4077066437/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4077066437.dir/build.make CMakeFiles/cmTryCompileExec4077066437.dir/build
+/usr/local/Cellar/cmake/2.8.10.1/bin/cmake -E cmake_progress_report /Users/Chris/Projects/Zuva-OS/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4077066437.dir/testCCompiler.c.o
+/usr/local/cross/bin/i586-elf-gcc    -o CMakeFiles/cmTryCompileExec4077066437.dir/testCCompiler.c.o   -c /Users/Chris/Projects/Zuva-OS/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec4077066437
+/usr/local/Cellar/cmake/2.8.10.1/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4077066437.dir/link.txt --verbose=1
+/usr/local/cross/bin/i586-elf-gcc         CMakeFiles/cmTryCompileExec4077066437.dir/testCCompiler.c.o  -o cmTryCompileExec4077066437 -rdynamic 
+i586-elf-gcc: error: unrecognized option '-rdynamic'
+make[1]: *** [cmTryCompileExec4077066437] Error 1
+make: *** [cmTryCompileExec4077066437/fast] Error 2
+
+

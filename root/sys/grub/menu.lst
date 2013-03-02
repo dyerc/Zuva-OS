@@ -1,0 +1,9 @@
+default 0
+
+#timeout 10
+#title Boot from hard disk
+#chainloader (hd0)+1
+
+
+title Zuva
+kernel /sys/zkernel

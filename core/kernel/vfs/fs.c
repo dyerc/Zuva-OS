@@ -1,3 +1,0 @@
-
-
-void fs_register(
